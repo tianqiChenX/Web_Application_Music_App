@@ -1,0 +1,80 @@
+<app-not-found
+  [visible]="resultsNotFound"
+  notFoundMessage="Not Found"
+  resetLinkText="Back To Homepage"
+></app-not-found>
+
+<div class="back">
+  <button (click)="back()">Back</button>
+</div>
+
+<div *ngIf="playlist" class="container">
+  <img
+    src="../../../assets/images/pexels-alex-green-5699509.jpg"
+    alt="default playlist img"
+  />
+
+  <div class="details">
+    <div class="header">
+      <span class="name"> {{ playlist.list_name }} </span>
+    </div>
+
+    <div *ngIf="playlist.last_modified_date" class="date">
+      <span> Last Modified Date: {{ playlist.last_modified_date }} </span>
+    </div>
+
+    <div *ngIf="playlist.list_creator" class="creator">
+      <span> Creator: {{ playlist.list_creator }} </span>
+    </div>
+
+    <div *ngIf="avgRating" class="rating">
+      <span> Rating: {{ avgRating }} </span>
+    </div>
+
+    <div *ngIf="playlist.description" class="description">
+      <span> Description: {{ playlist.description }} </span>
+    </div>
+
+    <div class="tracks">
+      <!-- <span> Tracks: {{ t.track_title }} - {{ t.artist_name }} </span> -->
+      <ul>
+        <li *ngFor="let track of tracks">
+          <a routerLink="/track/{{ track.track_id }}">
+            <!-- <img src="../../../assets/images/music-svgrepo-com.svg" alt="music icon"> -->
+            <div class="content">
+              <div class="trackTitle">
+                {{ track.track_title }} - {{ track.artist_name }}
+                <div class="focusContent">
+                  <div *ngIf="track.track_genres" class="genres">
+                    <span>
+                      Genres: {{ parseGenresToString(track.track_genres) }}
+                    </span>
+                  </div>
+                  <span> Album: {{ track.album_title }} </span><br />
+                  <span> Created Date: {{ track.track_date_created }} </span
+                  ><br />
+                  <span> Play time: {{ track.track_duration }} </span><br />
+                </div>
+              </div>
+            </div>
+          </a>
+          <button
+            *ngIf="track.track_title"
+            (click)="searchOnYouTube(track.track_title)"
+          >
+            Play
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="playlist.reviews" class="reviews">
+      <!-- <span> Reviews: {{ playlist.reviews }} </span> -->
+      <app-reviews-area
+        [reviews]="playlist.reviews"
+        [listName]="playlist.list_name"
+        [username]="currentUser"
+      ></app-reviews-area>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+a {
+  height: 3rem;
+  width: 10rem;
+  border: 1px solid whitesmoke;
+  border-radius: 0.5rem;
+  margin: 2rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ff0000;
+  color: white;
+  opacity: 0.8;
+}
+
+a:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+ul {
+  max-width: 500px;
+  border: 1px solid whitesmoke;
+  border-radius: 0.5rem;
+}
+
+li {
+  padding: 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0 10px 0;
+}
+
+legend {
+  margin: 0 5px 3px 0;
+  padding: 0px;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  margin: 0 0 px 0;
+  padding: 0px;
+  display: block;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #bebebe;
+  padding: 7px;
+  margin: 0px;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+}
+
+input:focus,
+textarea:focus {
+  -moz-box-shadow: 0 0 8px #88d5e9;
+  -webkit-box-shadow: 0 0 8px #88d5e9;
+  box-shadow: 0 0 8px #88d5e9;
+  border: 1px solid #88d5e9;
+}
+
+.required {
+  color: red;
+}
+
+button {
+  height: 2rem;
+  width: 5rem;
+  font-size: 1rem;
+  border-radius: 10rem;
+  border: none;
+  background-color: #ff0000;
+  color: white;
+  opacity: 0.8;
+  outline: none;
+}
+
+button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: black;
+  background-color: #f1f1f1;
+}
+
+.form-area .ratingOptions {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.form-area .ratingOptions .options {
+  margin: 5px;
+}

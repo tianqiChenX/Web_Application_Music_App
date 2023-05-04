@@ -1,0 +1,62 @@
+<div class="review-container">
+  <div class="addReview" *ngIf="loggedIn">
+    <a class="addButton" (click)="toggleCollapse()">Add Comment</a>
+    <div class="form-area" *ngIf="visible">
+      <form #reviewForm="ngForm" (ngSubmit)="addReview(reviewForm.value)">
+        <ul>
+          <li>
+            <div class="ratingOptions">
+              <legend>Rating</legend>
+              <div class="options" *ngFor="let score of rates">
+                <label for="{{ score }}">{{ score }}</label>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="{{ score }}"
+                  required
+                  ngModel
+                />
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <label for="comment">Comment</label>
+            <textarea
+              type="text"
+              id="list-comment"
+              name="comment"
+              placeholder="leave comment"
+              ngModel
+            >
+            </textarea>
+          </li>
+
+          <li>
+            <button type="submit" [disabled]="!reviewForm.valid">
+              Confirm
+            </button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="reviews.length" class="review-area">
+    <p><strong> Comments:</strong></p>
+    <ul *ngFor="let review of reviews">
+      <li *ngIf="!review.hidden && review.commenter">
+        User: {{ review.commenter }}
+      </li>
+      <li *ngIf="!review.hidden && review.comment_date">
+        Date: {{ parseDate(review.comment_date) }}
+      </li>
+      <li *ngIf="!review.hidden && review.rating">
+        Rating: {{ review.rating }}
+      </li>
+      <li *ngIf="!review.hidden && review.comment">
+        Comment: {{ review.comment }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<app-create-list [username]="this.username"></app-create-list>
+
+<div class="playlist-container">
+  <div class="header">
+    <span>Browse My Playlists</span>
+  </div>
+
+  <div class="details">
+    <ul>
+      <li *ngFor="let summary of this.playlistSummarys">
+        <!-- <a routerLink="/playlist/{{ summary.list_name }}"> -->
+        <a
+          routerLink="/personalPlaylist/{{ summary.list_name }}/{{ username }}"
+        >
+          <div class="listSummary">
+            <span> {{ summary.list_name }} - {{ summary.list_creator }} </span>
+            <div class="summary">
+              <span>
+                Tracks: {{ summary.number_tracks }} - Total Play Time:
+                {{ summary.total_play_time }} </span
+              ><br />
+              <span *ngIf="summary.list_rating">
+                Rating: {{ summary.list_rating }}
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <button
+          *ngIf="summary"
+          class="delete"
+          (click)="deletePlaylist(summary.list_name)"
+        >
+          Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

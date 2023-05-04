@@ -1,0 +1,50 @@
+<app-not-found
+  [visible]="resultsNotFound"
+  notFoundMessage="Not Found"
+  resetLinkText="Back To Homepage"
+></app-not-found>
+
+<div *ngIf="track" class="back">
+  <button (click)="back()">Back</button>
+</div>
+
+<div *ngIf="track" class="container">
+  <img
+    src="../../../assets/images/pexels-mike-van-schoonderwalt-5505735.jpg"
+    alt="default track img"
+  />
+
+  <div class="details">
+    <div class="header">
+      <span class="name"> {{ track.track_title }} </span>
+    </div>
+
+    <div *ngIf="track.track_genres" class="genres">
+      <span *ngFor="let g of parseGenres(track.track_genres)">
+        {{ g }}
+      </span>
+    </div>
+
+    <div *ngIf="track.artist_name" class="artist">
+      <span> Artist: {{ track.artist_name }} </span>
+    </div>
+
+    <div *ngIf="track.album_title" class="album">
+      <span> Album: {{ track.album_title }} </span>
+    </div>
+
+    <div *ngIf="track.track_date_created" class="createdDate">
+      <span> Created Date: {{ track.track_date_created }} </span>
+    </div>
+
+    <div *ngIf="track.track_duration" class="playTime">
+      <span> Play time: {{ track.track_duration }} </span>
+    </div>
+
+    <div *ngIf="track.track_title" class="playOnYouTube">
+      <button (click)="searchOnYouTube(track.track_title)">
+        Play on YouTube
+      </button>
+    </div>
+  </div>
+</div>

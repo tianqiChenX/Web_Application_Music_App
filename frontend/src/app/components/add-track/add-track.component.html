@@ -1,0 +1,55 @@
+<div class="add-track-area">
+  <a class="expand" (click)="toggleCollapse()">Add Track</a>
+
+  <div class="container" *ngIf="visible">
+    <div class="searchDiv">
+      <p>Search to add...</p>
+      <input
+        id="track-search"
+        #search
+        (keyup.enter)="searchTrack(search.value)"
+        placeholder="Search..."
+      />
+      <button (click)="searchTrack(search.value)">Search</button>
+    </div>
+
+    <div *ngIf="results && results.length" class="searchResults">
+      <div class="header">
+        <span>Results:</span>
+      </div>
+
+      <ul>
+        <li *ngFor="let track of results">
+          <a routerLink="/track/{{ track.track_id }}">
+            <div class="content">
+              <div class="trackTitle">
+                {{ track.track_title }} - {{ track.artist_name }}
+                <div class="focusContent">
+                  <div *ngIf="track.track_genres" class="genres">
+                    <span>
+                      Genres: {{ parseGenresToString(track.track_genres) }}
+                    </span>
+                  </div>
+                  <span> Album: {{ track.album_title }} </span><br />
+                  <span> Created Date: {{ track.track_date_created }} </span
+                  ><br />
+                  <span> Play time: {{ track.track_duration }} </span><br />
+                </div>
+              </div>
+            </div>
+          </a>
+          <button
+            *ngIf="track.track_title"
+            (click)="addToPlaylist(track.track_id)"
+          >
+            Add
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="not-found" *ngIf="resultsNotFound">
+      <P>Not Found</P>
+    </div>
+  </div>
+</div>

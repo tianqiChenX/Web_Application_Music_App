@@ -1,0 +1,10 @@
+<div class="searchDiv">
+  <!-- <label for="track-search">Search for music</label> -->
+  <input
+    id="track-search"
+    #search
+    (keyup.enter)="searchTrack(search.value)"
+    placeholder="Search..."
+  />
+  <button (click)="searchTrack(search.value)">Search</button>
+</div>

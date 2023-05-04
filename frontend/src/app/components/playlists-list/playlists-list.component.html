@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="header">
+    <span>Browse Playlists</span>
+  </div>
+
+  <div class="details">
+    <ul>
+      <li *ngFor="let summary of this.playlistSummarys">
+        <a routerLink="/playlist/{{ summary.list_name }}/{{ currentUser }}">
+          <div class="listSummary">
+            <span> {{ summary.list_name }} - {{ summary.list_creator }} </span>
+            <div class="summary">
+              <span>
+                Tracks: {{ summary.number_tracks }} - Total Play Time:
+                {{ summary.total_play_time }} </span
+              ><br />
+              <span *ngIf="summary.list_rating">
+                Rating: {{ summary.list_rating }}
+              </span>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

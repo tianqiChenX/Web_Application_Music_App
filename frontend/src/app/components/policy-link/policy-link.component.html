@@ -1,0 +1,134 @@
+<div class="policy">
+  <h2>Security Policy</h2>
+  <!-- <br /> -->
+  <span> {{ policy_name.securityPolicy }} </span><br />
+  <br />
+  <h2>AUP Policy</h2>
+
+  <span>
+    <br />
+    {{ policy_name.AUPPolicy }} </span
+  ><br />
+  <br />
+  <h2>DMCA Policy</h2>
+  <br />
+  <span> {{ policy_name.DMCAPolicy }} </span><br />
+</div>
+<br />
+<br />
+
+<div *ngIf="auth.user$ | async as user">
+  <div *ngIf="user.preferred_username == 'administrator'">
+    <div class="a">
+      Administor Operation
+      <br />
+      <br />
+      <div class="security">
+        <br />
+        <br />
+        Modify security policy
+        <br />
+        <textarea
+          type="text"
+          #security
+          (keyup.enter)="updateSecurity(security.value)"
+          id="s"
+          name="policy"
+          placeholder="modify policy"
+          ngModel
+        >
+        </textarea>
+      </div>
+      <!-- <button (click)="securityUpdate(security.value)">modify</button> -->
+      <button (click)="updateSecurity(security.value)">modify</button>
+      <br />
+      <br />
+      <div class="AUO">
+        <br />
+        <br />
+        Modify AUP policy
+        <br />
+        <textarea
+          type="text"
+          #AUO
+          (keyup.enter)="updateAUO(AUO.value)"
+          id="a"
+          name="policy"
+          placeholder="modify policy"
+          ngModel
+        >
+        </textarea>
+      </div>
+      <button (click)="updateAUO(AUO.value)">modify</button>
+      <!-- <button (click)="AUOUpdate(AUO.value)">modify</button> -->
+
+      <div class="security">
+        <br />
+        <br />
+        Modify DMCA policy
+        <br />
+        <textarea
+          type="text"
+          #DMCA
+          (keyup.enter)="updateDMCA(DMCA.value)"
+          id="s"
+          name="policy"
+          placeholder="modify policy"
+          ngModel
+        >
+        </textarea>
+      </div>
+      <!-- <button (click)="DMCAUpdate(DMCA.value)">modify</button> -->
+      <button (click)="updateDMCA(DMCA.value)">modify</button>
+    </div>
+
+    <br />
+    <br />
+    <div class="p">
+      procedure of DMCAPolicy takedown
+      <br />
+      use the request button for receive the date request
+      <br />
+      use the noticed button for send the date noticed
+      <br />
+      use the dispute button for receive date dispute
+      <br />
+      <br />
+      <br />
+      <button (click)="viewRequest()">request</button>
+      <br />
+      <span>
+        {{ tool_name.request }}
+      </span>
+      <br />
+      <div class="notice">
+        <br />
+        <br />
+        Send Notice
+        <br />
+        <textarea
+          type="text"
+          #notice
+          (keyup.enter)="noticeSend(notice.value)"
+          id="s"
+          name="notice"
+          placeholder="send notice"
+          ngModel
+        >
+        </textarea>
+      </div>
+      <button (click)="noticeSend(notice.value)">notice</button>
+      <br />
+      <span>
+        {{ tool_name.notice }}
+      </span>
+      <br />
+      <br />
+      <button (click)="disputeClaim()">dispute</button>
+      <br />
+      <span>
+        {{ tool_name.dispute }}
+      </span>
+    </div>
+  </div>
+</div>

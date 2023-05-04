@@ -1,0 +1,49 @@
+<div class="playlist-createForm">
+  <div class="form-container">
+    <a (click)="toggleCollapse()">Create Playlist</a>
+
+    <div class="form-area" *ngIf="visible">
+      <form
+        #playlistForm="ngForm"
+        (ngSubmit)="createPlaylist(playlistForm.value)"
+      >
+        <ul>
+          <li>
+            <label for="list-name">Name<span class="required">*</span></label>
+            <input
+              type="text"
+              id="list-name"
+              name="listName"
+              placeholder="list name"
+              ngModel
+              required
+            />
+          </li>
+
+          <li>
+            <label for="list-des">Description</label>
+            <textarea
+              type="text"
+              id="list-des"
+              name="description"
+              placeholder="optional"
+              ngModel
+            >
+            </textarea>
+          </li>
+
+          <li>
+            <label for="list-public">Public</label>
+            <input type="checkbox" id="list-public" name="isPublic" ngModel />
+          </li>
+
+          <li>
+            <button type="submit" [disabled]="!playlistForm.valid">
+              Create
+            </button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>

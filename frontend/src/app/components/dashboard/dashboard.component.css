@@ -1,0 +1,178 @@
+img {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  border-radius: 50%;
+}
+
+.blockbtn,
+.assignAdminbtn,
+.reviewHide {
+  background-color: red;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin-right: 0.1cm;
+  margin-left: 0.5cm;
+  margin-bottom: 0.5cm;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.blockbtn:hover,
+.assignAdminbtn:hover,
+.blockbtn:focus,
+.assignAdminbtn:focus {
+  background-color: #f082ac;
+}
+
+.unblockbtn,
+.removeAdminbtn,
+.reviewReveal {
+  background-color: #1363df;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin-right: 0.1cm;
+  margin-left: 0.5cm;
+  margin-bottom: 0.5cm;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.unblockbtn:hover,
+.removeAdminbtn:hover,
+.unblockbtn:focus,
+.removeAdminbtn:focus {
+  background-color: #f082ac;
+}
+
+.displaybtn,
+.displayPlayListbtn {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  margin-right: 0.2cm;
+}
+
+.email {
+  color: gray;
+  margin-bottom: 1.5cm;
+}
+
+.list_name,
+.displayName {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 20px;
+  color: #333;
+}
+
+.comment {
+  color: #57b0e7;
+  font-family: "Lucida Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  text-indent: 30px;
+  margin: 0;
+}
+
+.rating {
+  color: #e4a81d;
+  font-family: "Lucida Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  text-indent: 30px;
+  margin: 0;
+}
+
+.comment_date {
+  color: #e84094;
+  font-family: "Lucida Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  text-indent: 30px;
+  margin: 0;
+}
+
+.personalPlaylists a {
+  height: 3rem;
+  width: 10rem;
+  border: 1px solid whitesmoke;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.personalPlaylists a:hover {
+  background: #f1f1f1;
+  cursor: pointer;
+}

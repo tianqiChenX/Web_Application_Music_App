@@ -1,0 +1,42 @@
+<app-search></app-search>
+
+<div *ngIf="results && results.length" class="searchResults">
+  <div class="header">
+    <span>Results:</span>
+  </div>
+
+  <ul>
+    <li *ngFor="let track of results">
+      <a routerLink="/track/{{ track.track_id }}">
+        <!-- <img src="../../../assets/images/music-svgrepo-com.svg" alt="music icon"> -->
+        <div class="content">
+          <div class="trackTitle">
+            {{ track.track_title }} - {{ track.artist_name }}
+            <div class="focusContent">
+              <div *ngIf="track.track_genres" class="genres">
+                <span>
+                  Genres: {{ parseGenresToString(track.track_genres) }}
+                </span>
+              </div>
+              <span> Album: {{ track.album_title }} </span><br />
+              <span> Created Date: {{ track.track_date_created }} </span><br />
+              <span> Play time: {{ track.track_duration }} </span><br />
+            </div>
+          </div>
+        </div>
+      </a>
+      <button
+        *ngIf="track.track_title"
+        (click)="searchOnYouTube(track.track_title)"
+      >
+        Play
+      </button>
+    </li>
+  </ul>
+</div>
+
+<app-not-found
+  [visible]="resultsNotFound"
+  notFoundMessage="Not Found"
+  resetLinkText="Back To Homepage"
+></app-not-found>

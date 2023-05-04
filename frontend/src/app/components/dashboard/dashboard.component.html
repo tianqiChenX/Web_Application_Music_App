@@ -1,0 +1,78 @@
+<div *ngIf="auth.user$ | async as user">
+  <img [src]="user.picture" alt="User's Profile Picture" class="profile_pic" />
+
+  <h1>Welcome to Music App {{ user.preferred_username }}!</h1>
+  <p class="email">{{ user.email }}</p>
+
+  <div *ngIf="user.preferred_username == 'administrator'">
+    <div>
+      <button class="displaybtn" (click)="getAllExistingUsers()">
+        Display All Existing Users
+      </button>
+      <button
+        class="displayPlayListbtn"
+        (click)="displayNameAndReviewOfAllPlayList()"
+      >
+        Display All Existing PlayLists
+      </button>
+      <ul>
+        <li *ngFor="let singlePlay of existingPlayList">
+          <span class="list_name">List: {{ singlePlay.list_name }}</span>
+          <ul>
+            <li *ngFor="let r of singlePlay.reviews">
+              <span class="comment" *ngIf="r.comment">Comment: {{ r.comment }}</span>&nbsp;
+              <span class="rating" *ngIf="r.rating">Rating: {{ r.rating }}</span>&nbsp;
+              <span class="comment_date" *ngIf="r.comment_date">Comment Date: {{ r.comment_date }}</span>&nbsp;
+              <button class="reviewHide" (click)="setReviewStatus(r._id, true)">
+                Hide the Review
+              </button>
+              <button
+                class="reviewReveal"
+                (click)="setReviewStatus(r._id, false)"
+              >
+                Reveal the Review
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul>
+        <li *ngFor="let single of existingUserList">
+          <span class="displayName">User: {{ single.username }}</span>
+          <button
+            class="blockbtn"
+            (click)="blockDesignatedUserById(single.user_id)"
+          >
+            Deactivate
+          </button>
+          <button
+            class="unblockbtn"
+            (click)="unblockDesignatedUserById(single.user_id)"
+          >
+            Activate
+          </button>
+          <button
+            class="assignAdminbtn"
+            (click)="assignRoleToDesignatedUserById(single.user_id)"
+          >
+            Assign Role Admin
+          </button>
+          <button
+            class="removeAdminbtn"
+            (click)="removeRoleToDesignatedUserById(single.user_id)"
+          >
+            Remove Role Admin
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Personal Playlists -->
+<div class="personalPlaylists" *ngIf="parseUsername(username)">
+  <a routerLink="/playlistsPrivate/{{ parseUsername(username) }}">
+    <span>My Playlists</span>
+  </a>
+</div>

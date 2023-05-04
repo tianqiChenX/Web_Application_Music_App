@@ -1,0 +1,34 @@
+export interface TrackDetails {
+  track_id: string;
+  album_id?: string;
+  album_title?: string;
+  album_url?: string;
+  artist_id?: string;
+  artist_name?: string;
+  artist_url?: string;
+  artist_website?: string;
+  license_image_file?: string;
+  license_image_file_large?: string;
+  license_parent_id?: string;
+  license_title?: string;
+  license_url?: string;
+  tags?: string;
+  track_bit_rate?: string;
+  track_comments?: string;
+  track_date_created?: string;
+  track_date_recorded?: string;
+  track_disc_number?: string;
+  track_duration?: string;
+  track_explicit?: string;
+  track_favorites?: string;
+  track_file?: string;
+  track_genres?: string;
+  track_image_file?: string;
+  track_instrumental?: string;
+  track_interest?: string;
+  track_language_code?: string;
+  track_listens?: string;
+  track_number?: string;
+  track_title?: string;
+  track_url?: string;
+}

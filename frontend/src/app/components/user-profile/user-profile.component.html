@@ -1,0 +1,3 @@
+<div *ngIf="auth.user$ | async as user">
+    <img [src]="user.picture" alt="User's Profile Picture" class="profile_pic" />  
+</div>

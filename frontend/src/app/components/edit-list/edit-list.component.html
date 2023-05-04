@@ -1,0 +1,47 @@
+<div class="playlist-editForm">
+  <div class="form-container">
+    <a (click)="toggleCollapse()">Edit Playlist</a>
+
+    <div class="form-area" *ngIf="visible">
+      <form
+        #playlistForm="ngForm"
+        (ngSubmit)="editPlaylist(playlistForm.value)"
+      >
+        <ul>
+          <li>
+            <label for="list-name">Name</label>
+            <input
+              type="text"
+              id="list-name"
+              name="listName"
+              placeholder="{{ listName }}"
+              ngModel
+              required
+            />
+          </li>
+
+          <li>
+            <label for="list-des">Description</label>
+            <textarea
+              type="text"
+              id="list-des"
+              name="description"
+              placeholder="new description"
+              ngModel
+            >
+            </textarea>
+          </li>
+
+          <li>
+            <label for="list-public">Public</label>
+            <input type="checkbox" id="list-public" name="isPublic" ngModel />
+          </li>
+
+          <li>
+            <button type="submit">Confirm</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
